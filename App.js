@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, ImageBackground  } from 'react-native';
+import React from 'react';
+import Header  from './header';
+import Footer from './footer';
+import Instrucciones from './instrucciones';
+//imagenes
+import backgroundImage1 from './assets/static/Fondo_RutaIterg_720x1600px_ExploraxV2-0.png';
+import backgroundImage2 from './assets/static/Fondo_RutaIterg_720x1600px_ExploraxV2-0 - copia.png';
+
 
 export default function App() {
+  const screenWidth = Dimensions.get('window').width;
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    
+    <ImageBackground source={screenWidth <= 706 ? backgroundImage1 : backgroundImage2} style={styles.contenedor} resize='cover'>
+      <Header style={{ flex: 1 }}/>
+      <Instrucciones />
+      <Footer style={{ flex: 1 }}/>
+    </ImageBackground>
+
+
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contenedor: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#391D4B',
+    overflow: 'hidden',
+
   },
 });
