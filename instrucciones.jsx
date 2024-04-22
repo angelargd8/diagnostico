@@ -11,19 +11,32 @@ function Instrucciones(){
     return(
         <View style={styles.contenedorInstrucciones}>
             <View style={styles.contenedor}>
+                <View style={styles.instrucciones}>
+                    <View style={styles.titulo}>
+                    <Text style={{ color: 'white' , fontSize: 20 }}>
+                        ¡Desafíate!
+                    </Text>
+                    </View>
+                    <View style={styles.descripcion}>
+                    <Text style={{ color: 'white' ,fontSize: 15 }}>
+                                Supera estos desafíos
+                                y empieza a completar
+                                la misión de:
+                    </Text>
+                    </View >
+                    <View style={styles.planeta}>
+                    <Text style={{ color: 'white' , fontSize: 15 , fontWeight: 'bold' }} >
+                    Jerarquía de operaciones
+                    </Text>
+                    </View>
+                </View>
+            
             </View>
             <View style={styles.animar}>
             <LottieView source={require('./assets/Animaciones/D con fuego.json')} autoPlay loop style={styles.animar} />
             </View>
             
-            <View style={styles.instrucciones}>
-            </View>
-            <View style={styles.titulo}>
-            </View>
-            <View style={styles.descripcion}>
-            </View>
-            <View style={styles.planeta}>
-            </View>
+            
             
 
 
