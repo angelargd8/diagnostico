@@ -4,10 +4,10 @@
     "slug": "react-native-course",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/static/LogoParaFondosClaros_ExploraxV2-0.png",
+    "icon": "./assets/static/logo_blanco_transicion.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/static/LogoParaFondosClaros_ExploraxV2-0.png",
+      "image": "./assets/static/logo_blanco_transicion.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -26,7 +26,7 @@
     "web": {
       "favicon": "./assets/static/LogoParaFondosClaros_ExploraxV2-0.png",
       "splash": {
-        "image": "./assets/static/LogoParaFondosClaros_ExploraxV2-0.png",
+        "image": "./assets/static/logo_blanco_transicion.png",
         "resizeMode": "contain",
         "backgroundColor": "#ffffff"
       }
