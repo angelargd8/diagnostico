@@ -22,9 +22,12 @@ function Footer(){
     );
 }
 
+//obtener el ancho y largo de la pantalla
+
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
+//---estilos---
 const styles = StyleSheet.create({
     footer: {
         position: 'absolute',

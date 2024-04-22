@@ -1,3 +1,4 @@
+//autor: Angela Garcia
 import { StyleSheet, Text, View, Dimensions, ImageBackground  } from 'react-native';
 import React from 'react';
 import Instrucciones from './instrucciones';
@@ -5,16 +6,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Ejercicios from './ejercicios';
 
+
+//en App, practicamente solo se manejan rutas
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-
-  const screenWidth = Dimensions.get('window').width;
-
   return (
     <NavigationContainer style={styles.navegacion}>
       
-        
         <Stack.Navigator screenOptions={
           { 
             ...styles.navegacion,
@@ -32,6 +31,7 @@ export default function App() {
   );
 }
 
+//---estilos---
 const styles = StyleSheet.create({
   navegacion: {
     flex: 1,

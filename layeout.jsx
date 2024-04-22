@@ -7,7 +7,7 @@ import Footer from './footer';
 import backgroundImage1 from './assets/static/Fondo_RutaIterg_720x1600px_ExploraxV2-0.png';
 import backgroundImage2 from './assets/static/Fondo_RutaIterg_720x1600px_ExploraxV2-0 - copia.png';
 
-
+//esta funcion es para que cargue luego de llamar a las rutas correspondientes
 function Layout({children}) {
     const screenWidth = Dimensions.get('window').width;
     return (
@@ -20,7 +20,7 @@ function Layout({children}) {
 }
 
 
-  
+//---estilos---
 const styles = StyleSheet.create({
     contenedor: {
       flex: 1,

@@ -5,10 +5,8 @@ import Layout from './layeout';
 
 //imagenes
 import questionMark from './assets/static/QuestionMark.png';
-import coinImage from './assets/static/moneda.png';
-import scoreBoxImage from './assets/static/pantalla_puntos/cuadroPunteo.png';
 
-
+//diccionario de preguntas
 const diccionario = {
     "a + b x c =": ["(a + b) x c", "a + b + c", "a x b + c", "a + b x c"], 
     "a x b – c = ": ["a x b – c", "a x (b – c)", "a x b + c", "a + b - c"]
@@ -19,19 +17,24 @@ const diccionarioCorrectas= {
     "a + b x c =": "a + b x c",
     "a x b – c = ": "a x b – c"
 }
+
 const primeraLlave = Object.keys(diccionario)[0];
 
+//es para poner las preguntas en los botones
 const buttons = [diccionario['a + b x c ='][0], diccionario['a + b x c ='][1], diccionario['a + b x c ='][2], diccionario['a + b x c ='][3]];
 
 function Ejercicios(){
+    //para que al presionar un boton salgan estrellas 
     const [showAnimation, setShowAnimation] = useState(false);
-
-
     return(
+        //layout, es para que luego de cargar el fondo y header de navegacion cargue los fondos 
         <Layout>
             <View style={styles.contenedorPrincipal}>
-
+            {showAnimation && (
+                <LottieView source={require('./assets/Animaciones/Estrellitas.json')} autoPlay loop style={{...styles.animar}} />
+            )}
                 <View style={ screenWidth <= 706 ?  styles.tituloMovil :styles.titulo}>
+                
                     <Text style={{ color: 'white' , fontSize: 40 ,fontWeight: 'bold'}}>
                         ¡Desafíate!
                     </Text>
@@ -73,9 +76,7 @@ function Ejercicios(){
                         <Text style={styles.text}>{button}</Text>
                     </TouchableOpacity>
                     ))}
-                    {showAnimation && (
-                    <LottieView source={require('./assets/Animaciones/Estrellitas.json')} autoPlay loop style={{...styles.animar}} />
-                    )}
+                    
                 </View>
 
 
@@ -96,9 +97,10 @@ function Ejercicios(){
     );
 }
 
+//obtener el ancho y largo de la pantalla
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
-
+//---estilos---
 const styles = StyleSheet.create({
     contenedorPrincipal: {
         position: 'absolute',
@@ -176,7 +178,7 @@ const styles = StyleSheet.create({
     animar:{
         width: '100%', 
         height: '100%',
-        top: '-10%',
+        top: '50%',
         //left: '-150%',
         zIndex: 3,
         position: 'absolute',
