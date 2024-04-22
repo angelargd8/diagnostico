@@ -1,33 +1,44 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground  } from 'react-native';
 import React from 'react';
-import Header  from './header';
-import Footer from './footer';
 import Instrucciones from './instrucciones';
-//imagenes
-import backgroundImage1 from './assets/static/Fondo_RutaIterg_720x1600px_ExploraxV2-0.png';
-import backgroundImage2 from './assets/static/Fondo_RutaIterg_720x1600px_ExploraxV2-0 - copia.png';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Ejercicios from './ejercicios';
 
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   const screenWidth = Dimensions.get('window').width;
 
   return (
-    
-    <ImageBackground source={screenWidth <= 706 ? backgroundImage1 : backgroundImage2} style={styles.contenedor} resize='cover'>
-      <Header style={{ flex: 1 }}/>
-      <Instrucciones />
-      <Footer style={{ flex: 1 }}/>
-    </ImageBackground>
-
+    <NavigationContainer style={styles.navegacion}>
+      
+        
+        <Stack.Navigator screenOptions={
+          { 
+            ...styles.navegacion,
+            headerShown: false , 
+            cardStyle: { backgroundColor: 'transparent' } , 
+            transparentCard: true,
+            cardOverlayEnabled: true
+          }}>
+          <Stack.Screen name="Instrucciones" component={Instrucciones} options={{ cardStyle: { backgroundColor: 'transparent' } }}/>
+          <Stack.Screen name="Ejercicios" component={Ejercicios} options={{ cardStyle: { backgroundColor: 'transparent' } }}/>
+        </Stack.Navigator>
+        
+    </NavigationContainer>
 
   );
 }
 
 const styles = StyleSheet.create({
-  contenedor: {
+  navegacion: {
     flex: 1,
-    backgroundColor: '#391D4B',
-    overflow: 'hidden',
-
+    top:0, 
+    left:0,
+    position: 'absolute',
+    backgroundColor: '#204d8d11',
+    zIndex:-1,
   },
 });

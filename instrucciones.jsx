@@ -1,53 +1,54 @@
 import { StyleSheet, Text, View, Dimensions, ImageBackground, Image,Animated, Easing,Button ,TouchableOpacity } from 'react-native';
 import React, {useEffect, useRef} from 'react';
 import LottieView from 'lottie-react-native';
-//imagenes
-import planetImage from './assets/static/PlanetaA.png';
-import coinImage from './assets/static/moneda.png';
-import scoreBoxImage from './assets/static/pantalla_puntos/cuadroPunteo.png';
+import { useNavigation } from '@react-navigation/native';
+import Layout from './layeout';
 
 function Instrucciones(){
-
+    const navigation = useNavigation();
     return(
-        <View style={styles.contenedorInstrucciones}>
+        <Layout>
+            <View style={styles.contenedorInstrucciones}>
 
-            <View style={screenWidth <= 706 ?  styles.animarMovil :styles.animar}>
-            <LottieView source={require('./assets/Animaciones/D con fuego.json')} autoPlay loop style={styles.animar} />
-            </View>
-            
-            <View style={ screenWidth <= 706 ? styles.contenedorMovil :styles.contenedor}>
-                <View style={styles.instrucciones}>
-                    <View style={styles.titulo}>
-                        <Text style={{ color: 'white' , fontSize: 40 ,fontWeight: 'bold'}}>
-                            ¡Desafíate!
-                        </Text>
+                <View style={screenWidth <= 706 ?  styles.animarMovil :styles.animar}>
+                <LottieView source={require('./assets/Animaciones/D con fuego.json')} autoPlay loop style={styles.animar} />
+                </View>
+                
+                <View style={ screenWidth <= 706 ? styles.contenedorMovil :styles.contenedor}>
+                    <View style={styles.instrucciones}>
+                        <View style={styles.titulo}>
+                            <Text style={{ color: 'white' , fontSize: 40 ,fontWeight: 'bold'}}>
+                                ¡Desafíate!
+                            </Text>
+                        </View>
+                        <View style={screenWidth <= 706 ?  styles.descripcionMovil: styles.descripcion}>
+                            <Text style={{ color: 'white' ,fontSize: 15 }}>
+                                        Supera estos desafíos
+                                        y empieza a completar
+                                        la misión de:
+                            </Text>
+                        </View >
+                        <View style={styles.planeta}>
+                            <Text style={{ color: 'white' , fontSize: 15 , fontWeight: 'bold' }} >
+                            Jerarquía de operaciones
+                            </Text>
+                        </View>
                     </View>
-                    <View style={screenWidth <= 706 ?  styles.descripcionMovil: styles.descripcion}>
-                        <Text style={{ color: 'white' ,fontSize: 15 }}>
-                                    Supera estos desafíos
-                                    y empieza a completar
-                                    la misión de:
-                        </Text>
-                    </View >
-                    <View style={styles.planeta}>
-                        <Text style={{ color: 'white' , fontSize: 15 , fontWeight: 'bold' }} >
-                        Jerarquía de operaciones
-                        </Text>
-                    </View>
+
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => {
+                        
+                        navigation.navigate('Ejercicios');
+                        }}
+                    >
+                        <Text style={styles.text}>¡ACEPTO EL RETO!</Text>
+                    </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                alert('Botón personalizado presionado!');
-                }}
-                >
-                    <Text style={styles.text}>¡ACEPTO EL RETO!</Text>
-                </TouchableOpacity>
+
             </View>
-
-
-        </View>
+        </Layout>
     );
 }
 
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
         zIndex: 3,
         height: '100%',
         width: '100%',
+        backgroundColor: 'transparent' 
         
     },
     animar:{
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
 
     },
     text: {
-        color: '#084872',
+        color: '#133362',
         shadowColor: '#8D8D8D',
         fontWeight: 'bold',
     },
